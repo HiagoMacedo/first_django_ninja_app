@@ -2,14 +2,19 @@ from ninja import NinjaAPI, Schema
 from cliente.api import router as cliente_router
 from cidade.api import router as cidade_router
 from filial.api import router as filial_router
-
+from veiculo.api import router as veiculo_router
 
 
 api = NinjaAPI()
 
+
 api.add_router('/clientes/', cliente_router)
+
 api.add_router('/cidades/', cidade_router)
+
 api.add_router('/filial/', filial_router)
+
+api.add_router('/veiculos/', veiculo_router)
 
 class HelloSchema(Schema):
     name: str = "world"
