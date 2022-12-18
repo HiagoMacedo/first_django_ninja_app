@@ -1,7 +1,12 @@
 from ninja import NinjaAPI, Schema
+from cliente.api import router as cliente_router
+from cidade.api import router as cidade_router
+
 
 api = NinjaAPI()
 
+api.add_router('/clientes/', cliente_router)
+api.add_router('/cidades/', cidade_router)
 
 class HelloSchema(Schema):
     name: str = "world"

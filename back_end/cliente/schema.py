@@ -7,7 +7,15 @@ from cliente.models import Cliente
 class ClienteSchema(ModelSchema):
     class Config:
         model = Cliente
-        model_fields = ['codigo', 'nome', 'rua', 'bairro', 'cidade', 'cep', 'uf', 'cpf', 'cnpj']
+        model_fields = ['codigo',
+                        'nome',
+                        'rua', 
+                        'bairro', 
+                        'cidade', 
+                        'cep', 
+                        'uf', 
+                        'cpf', 
+                        'cnpj']
 
 
 class Error(Schema):

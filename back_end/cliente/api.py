@@ -41,7 +41,7 @@ def cliente(request, cliente_id: int):
 
 
 @router.put('/{cliente_id}', response={200: ClienteSchema, 404: Error})
-def put_cliente(request, cliente_id: int, data: ClienteSchema):
+def update_cliente(request, cliente_id: int, data: ClienteSchema):
     try:
         cliente = Cliente.objects.get(codigo=cliente_id)
         for attribute, value in data.dict().items():
