@@ -10,7 +10,7 @@ class CidadeSchema(ModelSchema):
         model_fields = ['codigo',
                         'nome',
                         'populacao',
-                        'anofundacao'
+                        'anofundacao',
                         'uf']
 
 
