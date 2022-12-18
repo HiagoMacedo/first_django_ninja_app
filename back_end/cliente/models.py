@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Cliente(models.Model):
-    codigo = models.IntegerField(primary_key=True)
+    codigo = models.AutoField(primary_key=True, unique=True, db_column='codigo')
     nome = models.CharField(max_length=100, blank=True, null=True)
     rua = models.CharField(max_length=100, blank=True, null=True)
     bairro = models.CharField(max_length=50, blank=True, null=True)
