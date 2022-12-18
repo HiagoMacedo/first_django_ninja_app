@@ -26,7 +26,7 @@ def create_cidade(request, data: CidadeSchema):
 @router.get('/{cidade_id}', response={200: CidadeSchema, 404: Error})
 def cidade(request, cidade_id: int):
     try:
-        cidade = Cidade.objects.get(id=cidade_id)
+        cidade = Cidade.objects.get(codigo=cidade_id)
         return 200, cidade
     
     except Cidade.DoesNotExist:
@@ -36,7 +36,7 @@ def cidade(request, cidade_id: int):
 @router.put('/{cidade_id}', response={200: CidadeSchema, 404: Error})
 def update_cidade(request, cidade_id: int, data: CidadeSchema):
     try:
-        cidade = Cidade.objects.get(id=cidade_id)
+        cidade = Cidade.objects.get(codigo=cidade_id)
         for key, value in data.dict().items():
             setattr(cidade, key, value)
         cidade.save()
@@ -49,7 +49,7 @@ def update_cidade(request, cidade_id: int, data: CidadeSchema):
 @router.delete('/{cidade_id}', response={200: None, 404: Error})
 def delete_cidade(request, cidade_id: int):
     try:
-        cidade = Cidade.objects.get(id=cidade_id)
+        cidade = Cidade.objects.get(codigo=cidade_id)
         cidade.delete()
         return 200
     except Cidade.DoesNotExist:
